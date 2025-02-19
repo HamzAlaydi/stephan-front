@@ -1,0 +1,84 @@
+/* MachineProfile.css */
+.normal-page-style {
+  flex-grow: 1;
+  overflow-x: hidden;
+  padding: 16px;
+}
+
+.details-container {
+  margin-bottom: 32px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.maintenance-history-container {
+  width: 100%;
+  height: 72px;
+  border-radius: 12px;
+  background-color: rgba(22, 66, 60, 0.1);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+}
+
+.maintenance-history-title {
+  font-family: Nunito Sans;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  line-height: 32.74px !important;
+  text-align: left !important;
+  text-underline-position: from-font !important;
+  text-decoration-skip-ink: none !important;
+}
+
+/* MachineProfile.css */
+.MuiTable-root {
+  border-collapse: collapse;
+}
+
+.MuiTableCell-root {
+  border: none !important;
+}
+
+.machine-profile-page {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.details-container {
+  margin-bottom: 20px;
+}
+
+.maintenance-history-container {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.maintenance-history-title {
+  font-weight: bold;
+  color: #333;
+}
+
+.view-details-button {
+  width: 120px;
+  height: 33px;
+  border-radius: 4px;
+  background-color: rgba(22, 66, 60, 1);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 6px 12px;
+}
+
+.view-details-button:hover {
+  background-color: rgba(17, 55, 50, 1);
+}

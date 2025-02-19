@@ -1,0 +1,50 @@
+.success-popup .MuiDialog-paper {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.success-content {
+  padding: 32px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.close-button {
+  position: absolute !important;
+  top: 8px;
+  right: 8px;
+  color: #666666 !important;
+}
+
+.success-icon-container {
+  margin-bottom: 16px;
+}
+
+.success-icon {
+  font-size: 64px !important;
+  color: rgba(22, 66, 60, 0.8) !important;
+}
+
+.success-message {
+  font-family: "Nunito Sans" !important;
+  font-size: 20px !important;
+  color: #333333;
+  text-align: center;
+  font-weight: 600 !important;
+}
+
+@media (max-width: 600px) {
+  .success-content {
+    padding: 24px !important;
+  }
+
+  .success-icon {
+    font-size: 48px !important;
+  }
+
+  .success-message {
+    font-size: 16px !important;
+  }
+}

@@ -1,0 +1,32 @@
+.price-cell {
+  width: 70px;
+  height: 33px;
+  border-radius: 4px;
+  background-color: rgba(22, 66, 60, 1);
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 6px 12px;
+}
+
+.stock-item-cell {
+  width: 30px; /* Reduce the width */
+  height: 30px; /* Reduce the height */
+  margin-right: 8px; /* Spacing between the icon and text */
+  vertical-align: middle; /* Align the icon vertically with the text */
+  object-fit: contain; /* Ensure the icon scales properly without distortion */
+}
+
+@media screen and (max-width: 600px) {
+  .stock-item-cell {
+    width: 10px; /* Reduce the width */
+    height: 10px; /* Reduce the height */
+    margin-right: 8px; /* Spacing between the icon and text */
+    vertical-align: middle; /* Align the icon vertically with the text */
+    object-fit: contain; /* Ensure the icon scales properly without distortion */
+  }
+}

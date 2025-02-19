@@ -1,0 +1,68 @@
+.spare-parts-dialog .MuiDialog-paper {
+  border-radius: 8px;
+  width: 678px !important;
+}
+
+.section-label {
+  font-family: "Nunito Sans" !important;
+  font-size: 16px !important;
+  color: #16423c;
+}
+
+.text-field {
+  background-color: #ffffff;
+}
+
+.text-field .MuiOutlinedInput-root {
+  border-radius: 4px;
+}
+
+.text-field .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #16423c;
+}
+
+.text-field
+  .MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border-color: #16423c;
+}
+
+.text-field .MuiInputLabel-root.Mui-focused {
+  color: #16423c;
+}
+
+.add-part-button {
+  color: #16423c !important;
+  border-color: #16423c !important;
+  text-transform: none !important;
+  font-family: "Nunito Sans" !important;
+  font-weight: 600 !important;
+}
+
+.add-part-button:hover {
+  background-color: rgba(22, 66, 60, 0.08) !important;
+}
+
+.submit-button {
+  background-color: #16423c !important;
+  color: white !important;
+  text-transform: none !important;
+  font-family: "Nunito Sans" !important;
+  font-weight: 600 !important;
+  padding: 8px 24px !important;
+  border-radius: 4px !important;
+}
+
+.submit-button:hover {
+  background-color: rgba(22, 66, 60, 1) !important;
+}
+
+@media (max-width: 600px) {
+  .dialog-content {
+    padding: 16px !important;
+  }
+
+  .section-label {
+    font-size: 14px !important;
+  }
+}

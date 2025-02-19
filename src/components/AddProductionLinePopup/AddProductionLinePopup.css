@@ -1,0 +1,68 @@
+/* Add Production Line Popup */
+.add-production-line-popup .MuiDialog-paper {
+  width: 678px !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Popup Content */
+.popup-content {
+  padding: 16px;
+}
+
+/* Input Label */
+.input-label {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 20.46px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.8);
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Production Id and Name Fields */
+.production-id-field .MuiOutlinedInput-root,
+.production-name-field .MuiOutlinedInput-root {
+  width: 159px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.production-id-field .MuiOutlinedInput-notchedOutline,
+.production-name-field .MuiOutlinedInput-notchedOutline {
+  border: none; /* Remove default border */
+}
+
+/* Description Field */
+.description-field .MuiOutlinedInput-root {
+  height: 50px !important;
+  border-radius: 6px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(217, 217, 217, 0.3) !important;
+}
+
+.description-field .MuiOutlinedInput-notchedOutline {
+  border: none; /* Remove default border */
+}
+
+.description-row .input-label {
+  margin-top: 20px !important; /* Increased margin above the label */
+}
+
+/* Action Buttons */
+.popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 24px;
+}

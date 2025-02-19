@@ -1,0 +1,121 @@
+.sidebar {
+  height: 97vh; /* Full height of the viewport */
+  color: #003f36; /* Text color */
+  padding: 20px; /* Spacing inside the sidebar */
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease-in-out; /* Smooth transition for toggling */
+  width: var(--sidebar-width); /* Use the sidebar width variable */
+  margin: 20px;
+  overflow-y: auto; /* Allow scrolling for long content */
+  background-color: rgba(196, 218, 210, 0.2);
+  border-radius: 20px;
+  position: fixed; /* Fix the sidebar position */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/* Hide sidebar on smaller screens by default */
+.sidebar.hidden {
+  transform: translateX(-100%); /* Slide the sidebar out of view */
+}
+
+.sidebar-logo {
+  margin: 20px 20px 40px 20px; /* Adjusted space for responsiveness */
+}
+
+.slogo {
+  width: 100%; /* Scaled-down logo for smaller screens */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 250px;
+}
+
+.spacer {
+  height: 20px; /* Adjusted for smaller screens */
+}
+
+.sidebar-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Reduced spacing for smaller screens */
+  width: 100%; /* Full width for tabs */
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #003f36; /* Text color */
+  width: 100%; /* Full width for tabs */
+  height: auto; /* Flexible height */
+}
+
+.tab:hover,
+.tab.active {
+  background-color: #16423c1a; /* 10% opacity of #16423C */
+  border-radius: 7px; /* Fully rounded corners */
+  box-shadow: 0px 3px 5px 2px #16423c4d; /* Box shadow */
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #000;
+}
+
+.tab-icon {
+  width: 24px; /* Fixed width for icons */
+  height: 24px; /* Fixed height for icons */
+  margin-right: 10px; /* Spacing between icon and text */
+}
+
+.tab span {
+  font-size: 16px; /* Reduced font size for smaller screens */
+  font-weight: 700; /* Medium text */
+  color: #000;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #d0d9d6; /* Light divider color */
+  margin: 10px 0; /* Space around the divider */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 200px; /* Narrower sidebar for tablets */
+    padding: 10px; /* Spacing inside the sidebar */
+    background-color: #fff;
+    border-radius: 0px;
+    box-shadow: 0px 0 0px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: fixed; /* Fixed position to stay in place */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    z-index: 1; /* Ensure sidebar is above other content */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for 
+  }
+
+  .sidebar-logo {
+    margin: 10px 10px 30px 10px; /* Reduced spacing */
+  }
+
+  .slogo {
+    width: 100px; /* Smaller logo */
+    margin-top: 40px;
+  }
+
+  .tab span {
+    font-size: 12px; /* Smaller font size */
+  }
+
+  .tab-icon {
+    width: 20px; /* Smaller icons */
+    height: 20px;
+  }
+}

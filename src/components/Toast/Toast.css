@@ -1,0 +1,82 @@
+.toast-container {
+  min-width: 300px;
+  max-width: 500px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toast-message {
+  font-family: "Nunito Sans" !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #ffffff;
+  margin: 0 !important;
+}
+
+.toast-icon {
+  font-size: 24px !important;
+  color: #ffffff;
+}
+
+.toast-close {
+  font-size: 20px !important;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}
+
+/* Success Toast */
+.toast-success {
+  background-color: rgba(22, 66, 60, 0.95);
+}
+
+/* Error Toast */
+.toast-error {
+  background-color: rgba(211, 47, 47, 0.95);
+}
+
+/* Warning Toast */
+.toast-warning {
+  background-color: rgba(237, 108, 2, 0.95);
+}
+
+/* Info Toast */
+.toast-info {
+  background-color: rgba(2, 136, 209, 0.95);
+}
+
+@media (max-width: 600px) {
+  .toast-container {
+    min-width: auto;
+    width: calc(100% - 32px);
+    margin: 0 16px;
+    padding: 10px 16px;
+  }
+
+  .toast-message {
+    font-size: 14px !important;
+  }
+
+  .toast-icon {
+    font-size: 20px !important;
+  }
+
+  .toast-close {
+    font-size: 18px !important;
+  }
+}

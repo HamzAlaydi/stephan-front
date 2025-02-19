@@ -1,0 +1,33 @@
+/* Cancel button styles */
+.cancelButton {
+  width: 266px !important;
+  height: 53px !important;
+  border-radius: 12px !important;
+  background-color: #d9d9d94d !important;
+  color: #000 !important;
+  opacity: 1 !important;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+}
+
+.cancelButton:hover {
+  background-color: #d9d9d94d !important;
+}
+
+/* Create button styles */
+.createButton {
+  width: 266px !important;
+  height: 53px !important;
+  border-radius: 12px !important;
+  background-color: #16423c !important;
+  color: #fff !important;
+  opacity: 1 !important;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+}
+
+.createButton:hover {
+  background-color: #16423c !important;
+}

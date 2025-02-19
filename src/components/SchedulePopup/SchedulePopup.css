@@ -1,0 +1,110 @@
+.schedule-dialog .dialog-title {
+  padding: 16px 32px;
+  position: relative;
+}
+
+.dialog-title-text {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(22, 66, 60, 0.8);
+}
+
+.close-button {
+  position: absolute !important;
+  right: 16px !important;
+  top: 12px !important;
+  color: rgba(22, 66, 60, 0.8) !important;
+}
+
+.close-button:hover {
+  background-color: rgba(22, 66, 60, 0.1) !important;
+}
+
+.dialog-content {
+  padding: 24px 32px !important;
+}
+
+.date-time-picker {
+  width: 100%;
+}
+
+/* Style the calendar/time popup */
+.MuiPickersPopper-root {
+  & .MuiPickersDay-root {
+    &.Mui-selected {
+      background-color: rgba(22, 66, 60, 0.8) !important;
+    }
+    &:hover {
+      background-color: rgba(22, 66, 60, 0.1);
+    }
+  }
+  & .MuiClock-pin {
+    background-color: rgba(22, 66, 60, 0.8) !important;
+  }
+  & .MuiClockPointer-root {
+    background-color: rgba(22, 66, 60, 0.8) !important;
+  }
+  & .MuiClockPointer-thumb {
+    background-color: rgba(22, 66, 60, 0.8) !important;
+    border-color: rgba(22, 66, 60, 0.8) !important;
+  }
+}
+
+.dialog-actions {
+  padding: 16px 32px 24px !important;
+  gap: 12px;
+}
+
+.cancel-button {
+  padding: 8px 24px;
+  border: 1px solid rgba(22, 66, 60, 0.8);
+  border-radius: 4px;
+  background-color: transparent;
+  color: rgba(22, 66, 60, 0.8);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-button:hover {
+  background-color: rgba(22, 66, 60, 0.1);
+}
+
+.schedule-button {
+  padding: 8px 24px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(22, 66, 60, 0.8);
+  color: white;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.schedule-button:hover {
+  background-color: rgba(22, 66, 60, 0.9);
+}
+
+/* Override Material-UI DateTimePicker styles */
+.MuiPickersLayout-root {
+  & .MuiPickersLayout-actionBar button {
+    color: rgba(22, 66, 60, 0.8) !important;
+  }
+
+  & .MuiDateTimePickerTabs-root {
+    background-color: rgba(22, 66, 60, 0.05);
+
+    & .Mui-selected {
+      color: rgba(22, 66, 60, 0.8) !important;
+    }
+  }
+
+  & .MuiTabs-indicator {
+    background-color: rgba(22, 66, 60, 0.8) !important;
+  }
+}

@@ -1,0 +1,62 @@
+/* Add Machine Popup */
+.add-machine-popup .MuiDialog-paper {
+  width: 678px !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Popup Content */
+.popup-content {
+  padding: 16px;
+}
+
+/* Input Label */
+.input-label {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 300 !important;
+  line-height: 20.46px !important;
+  text-align: left !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+  display: block !important;
+  margin-bottom: 8px !important;
+}
+
+/* Machine ID, Name, and Maintenance Cost Fields */
+.machine-id-field .MuiOutlinedInput-root,
+.machine-name-field .MuiOutlinedInput-root,
+.maintenance-cost-field .MuiOutlinedInput-root {
+  width: 100% !important;
+  height: 28px !important;
+  border-radius: 6px !important;
+  border: 1px solid #ccc !important;
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 300 !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.machine-id-field .MuiOutlinedInput-notchedOutline,
+.machine-name-field .MuiOutlinedInput-notchedOutline,
+.maintenance-cost-field .MuiOutlinedInput-notchedOutline {
+  border: none !important; /* Remove default border */
+}
+
+/* Action Buttons */
+.popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.production-line-field {
+  width: 100% !important;
+  height: 28px !important;
+  border-radius: 6px !important;
+  border: 0px solid #ccc !important;
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 300 !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+}

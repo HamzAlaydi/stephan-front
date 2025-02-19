@@ -1,0 +1,250 @@
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px 0 20px 0;
+}
+.table-name {
+  font-family: Nunito Sans;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32.74px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: rgba(0, 0, 0, 1);
+}
+
+/* Table Container */
+.table-container {
+  width: 100%;
+  opacity: 1;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden; /* Ensures rounded corners are visible */
+}
+
+/* Table Head Styles */
+.table-head {
+  font-family: "Nunito Sans";
+  font-size: 24px !important; /* Keep font size */
+  font-weight: 600 !important; /* Keep font weight */
+  color: rgba(22, 66, 60, 0.1); /* Keep text color */
+  background-color: rgba(22, 66, 60, 0.1); /* Keep background color */
+  padding: 20px 16px; /* Keep padding */
+  height: 83px; /* Fixed height */
+  text-align: center !important; /* Align text to the left */
+}
+
+/* ID Column Header - Center Aligned */
+.table-head.id-cell {
+  text-align: center !important; /* Center align ID column */
+}
+
+/* Table Data Styles */
+.table-data {
+  font-family: "Nunito Sans";
+  font-size: 20px !important; /* Keep font size */
+  font-weight: 300 !important; /* Keep font weight */
+  color: #333333; /* Keep text color */
+  padding: 20px 16px !important; /* Keep padding */
+  border-bottom: 1px solid #e0e0e0; /* Keep border */
+  height: 83px; /* Fixed height */
+  text-align: center !important; /* Align text to the left */
+}
+
+/* ID Column Data - Center Aligned */
+.table-data.id-cell {
+  text-align: center !important; /* Center align ID column */
+}
+
+/* Table Data Row Hover Effect */
+.table-data-row:hover {
+  background-color: #f5f5f5; /* Keep hover effect */
+  cursor: pointer; /* Keep cursor pointer */
+}
+
+/* Alternating Row Colors for Better Readability */
+.table-data-row:nth-child(odd) {
+  background-color: #f9f9f9; /* Keep alternating row colors */
+}
+
+/* Remove Border from the Last Row */
+.table-data-row:last-child td {
+  border-bottom: none; /* Keep last row border removal */
+}
+
+/* Standardize Column Widths */
+.table-head.id-cell,
+.table-data.id-cell {
+  width: auto; /* ID column width */
+}
+
+.table-head:nth-child(2),
+.table-data:nth-child(2) {
+  width: auto; /* Production Name column width */
+}
+
+.table-head:nth-child(3),
+.table-data:nth-child(3) {
+  width: auto; /* Description column width */
+}
+
+/* Pagination Container */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px; /* Add spacing above pagination */
+}
+
+/* Filter Container */
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(22, 66, 60, 0.11);
+  border-radius: 3px;
+  padding: 8px 16px;
+  width: 353px;
+  height: 49px;
+  margin-left: auto; /* Push the filter container to the right */
+}
+
+/* Filter Icon */
+.filter-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Filter Input */
+.filter-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: "Nunito Sans";
+  font-size: 20px !important;
+  color: #000;
+}
+/* ... other styles */
+
+.table-container {
+  overflow-x: auto !important; /* Enable horizontal scrolling */
+  transition: max-width 0.3s ease !important; /* Add transition for smooth width change */
+}
+
+.table-data.breakdown-causes-cell {
+  max-width: 200px !important; /* Or whatever width you want */
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important; /* Prevent wrapping */
+  cursor: pointer !important; /* Indicate that it's clickable */
+  transition: white-space 0.3s ease, overflow 0.3s ease, max-width 0.3s ease !important; /* Add transition */
+}
+
+.table-data.breakdown-causes-cell:hover {
+  white-space: normal !important; /* Allow wrapping on hover */
+  overflow: visible !important; /* Show all text */
+  max-width: fit-content !important; /* Adjust max-width to fit content */
+  position: relative !important; /* Needed for proper z-index */
+  z-index: 1 !important; /* Ensure it's above other cells */
+  background-color: white !important;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ... other styles */
+
+/* Left-align text for description column */
+.left-align {
+  text-align: left !important; /* Override center alignment */
+}
+/* Remove primary color and focus effects */
+.filter-input .MuiOutlinedInput-root {
+  fieldset {
+    border: none; /* Remove border */
+  }
+  &:hover fieldset {
+    border: none; /* Remove border on hover */
+  }
+  &.Mui-focused fieldset {
+    border: none; /* Remove border on focus */
+  }
+}
+
+/* Media Queries for Mobile Screens */
+@media (max-width: 600px) {
+  /* Reduce font sizes */
+  .table-head {
+    font-size: 14px !important; /* Smaller font size for headers */
+    padding: 10px 6px !important; /* Reduce padding */
+    height: 50px; /* Reduce height */
+  }
+
+  .table-data {
+    font-size: 12px !important; /* Smaller font size for data */
+    padding: 10px 6px !important; /* Reduce padding */
+    height: 50px; /* Reduce height */
+  }
+
+  /* Adjust filter container for mobile */
+  .filter-container {
+    width: 100%; /* Full width on mobile */
+    height: 40px; /* Reduce height */
+    padding: 4px 8px; /* Reduce padding */
+  }
+
+  .filter-input {
+    font-size: 12px !important; /* Smaller font size for filter input */
+  }
+
+  /* Adjust column widths for mobile */
+  .table-head.id-cell,
+  .table-data.id-cell {
+    width: 15%; /* Increase ID column width for better visibility */
+  }
+
+  .table-head:nth-child(2),
+  .table-data:nth-child(2) {
+    width: 35%; /* Adjust Production Name column width */
+  }
+
+  .table-head:nth-child(3),
+  .table-data:nth-child(3) {
+    width: 50%; /* Adjust Description column width */
+  }
+
+  /* Make table horizontally scrollable only if necessary */
+  .table-wrapper {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+  }
+
+  /* Hide less important columns on mobile */
+  .table-head.hide-on-mobile,
+  .table-data.hide-on-mobile {
+    display: none;
+  }
+
+  /* Ensure the table container fits within the screen */
+  .table-container {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+  }
+
+  /* Adjust the title container for mobile */
+  .title-container {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start */
+    margin: 20px 0; /* Reduce margin */
+  }
+
+  /* Adjust the table name for mobile */
+  .table-name {
+    font-size: 20px; /* Reduce font size */
+    margin-bottom: 10px; /* Add spacing below the title */
+  }
+  .table-data.breakdown-causes-cell {
+    overflow-x: auto !important;
+  }
+}

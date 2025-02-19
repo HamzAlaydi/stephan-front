@@ -1,0 +1,181 @@
+/* MaintenanceSummaryPopup.css */
+.maintenance-summary-popup .MuiDialog-paper {
+  width: 678px !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Title styles */
+.popup-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.popup-full-id {
+  font-family: Nunito Sans;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20.46px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+/* ID styles */
+.popup-id {
+  font-size: 15px;
+  color: rgba(208, 7, 7, 1);
+}
+
+/* Date styles */
+.popup-date {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21.82px;
+}
+
+/* Time styles */
+.popup-time {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 17.73px;
+
+  color: rgba(22, 66, 60, 0.4);
+}
+
+/* Section header styles */
+.popup-section-header {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 27.28px;
+  text-align: left;
+}
+
+/* Subtotal styles */
+.popup-subtotal {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 27.28px;
+  text-align: right;
+  margin-right: 1rem;
+}
+.subtotal-value {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21.82px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+/* Label styles */
+.popup-label {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 21.82px;
+}
+
+/* Value styles */
+.popup-value {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 20.46px;
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: 10px !important;
+}
+
+/* Table styles */
+.popup-table-header {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32.74px;
+
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.popup-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px !important;
+}
+.popup-table th {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 27.28px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.popup-table td {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 21.82px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.popup-table th,
+.popup-table td {
+  padding: 4px 8px;
+  text-align: center;
+  line-height: 21.82px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  border: none;
+}
+
+/* General Dialog Styles */
+.maintenance-summary-popup .MuiDialog-paper {
+  width: 90%;
+  max-width: 678px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popup-table-wrapper {
+  overflow-x: auto;
+}
+
+.popup-table th,
+.popup-table td {
+  text-align: center;
+  padding: 8px;
+}
+
+/* Typography Scaling */
+.popup-title {
+  font-size: 1.5rem;
+}
+
+.popup-date,
+.popup-time,
+.popup-section-header,
+.popup-label,
+.popup-value,
+.popup-subtotal {
+  font-size: 1rem;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 600px) {
+  .popup-title,
+  .popup-table-header {
+    font-size: 1.2rem;
+  }
+
+  .popup-section-header,
+  .popup-label {
+    font-size: 0.9rem;
+  }
+
+  .popup-value,
+  .popup-id,
+  .popup-date,
+  .popup-time,
+  .popup-table th,
+  .popup-table td {
+    font-size: 0.8rem;
+  }
+
+  .popup-table-wrapper {
+    margin-top: 10px;
+  }
+}

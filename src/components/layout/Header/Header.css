@@ -1,0 +1,190 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden; /* Remove scrollbars globally */
+}
+
+.header {
+  width: 100%; /* Full width */
+  height: 60px; /* Adjusted height */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px; /* Spacing inside the header */
+  /* background-color: rgba(196, 218, 210, 0.2) !important;  */
+  overflow: hidden; /* Ensure no scrollbars within the header */
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #16423c33; /* Background for the search box */
+  padding: 5px; /* Reduced padding for a compact layout */
+  width: 300px; /* Adjust width as needed */
+  border-radius: 5px; /* Rounded corners */
+  height: 40px; /* Reduced height */
+}
+
+.search-icon {
+  color: #003f36; /* Icon color */
+  font-size: 12px; /* Reduced icon size */
+  margin-right: 8px; /* Reduced spacing between icon and input */
+}
+
+.search-input {
+  outline: none;
+  border: none;
+  font-size: 12px;
+  color: #003f36; /* Text color */
+  background-color: transparent; /* Transparent background */
+  flex: 1; /* Take up remaining space */
+}
+
+/* Notification Icons */
+.notification-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Reduced spacing between icons */
+}
+
+.notification-icon {
+  width: 25px; /* Reduced icon width */
+  height: 25px; /* Reduced icon height */
+  cursor: pointer;
+}
+
+/* User Info */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Reduced spacing between icons */
+}
+
+.avatar-icon {
+  width: 40px; /* Adjust width as needed */
+  height: 40px; /* Adjust height as needed */
+  border-radius: 50%; /* Make the image circular */
+  object-fit: cover; /* Ensure the image covers the entire circle */
+  cursor: pointer; /* Add pointer cursor for better UX */
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-name {
+  font-size: 20px; /* Reduced font size */
+  font-weight: 500; /* Medium text */
+  color: #003f36; /* Text color */
+}
+
+.user-department {
+  font-size: 16px; /* Reduced font size */
+  color: #666; /* Light text color */
+}
+
+/* Dropdown Menu */
+.user-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px; /* Position below the user info */
+  right: 0;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 150px; /* Adjust width as needed */
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: 10px 20px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* Media Queries */
+/* Tablets */
+@media screen and (max-width: 900px) {
+  .user-name {
+    font-size: 15px; /* Reduced font size */
+    font-weight: 500; /* Medium text */
+    color: #003f36; /* Text color */
+  }
+
+  .user-department {
+    font-size: 10px; /* Reduced font size */
+    color: #666; /* Light text color */
+  }
+
+  .notification-icons {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Reduced spacing between icons */
+  }
+
+  .notification-icon {
+    width: 20px; /* Reduced icon width */
+    height: 20px; /* Reduced icon height */
+    cursor: pointer;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: right;
+    gap: 5px; /* Reduced spacing between icons */
+  }
+}
+
+/* Tablets */
+@media screen and (max-width: 900px) {
+  .user-name {
+    font-size: 15px; /* Reduced font size */
+    font-weight: 500; /* Medium text */
+    color: #003f36; /* Text color */
+  }
+
+  .user-department {
+    font-size: 10px; /* Reduced font size */
+    color: #666; /* Light text color */
+  }
+  .notification-icons {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Reduced spacing between icons */
+  }
+  .notification-icon {
+    width: 20px; /* Reduced icon width */
+    height: 20px; /* Reduced icon height */
+    cursor: pointer;
+  }
+  .user-info {
+    display: flex;
+    align-items: right;
+    gap: 5px; /* Reduced spacing between icons */
+  }
+}

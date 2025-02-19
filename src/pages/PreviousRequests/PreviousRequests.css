@@ -1,0 +1,45 @@
+.normal-page-style {
+  padding: 20px;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: left;
+  color: #1e1e1e;
+}
+.requests-list {
+  width: 250px; /* Fixed width for the list */
+}
+
+.request-card {
+  width: 100%; /* Cards take full width of the list */
+  border: 0px solid #ddd !important; /* Simple border for the card */
+  box-shadow: none; /* Remove shadow */
+  background-color: transparent !important; /* Remove background */
+}
+
+.request-id {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32.74px;
+  text-align: left;
+}
+
+.request-status {
+  color: #18703b;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 27.28px;
+  text-align: left;
+}
+
+.request-date {
+  /* increase spacing */
+  margin-left: 10px;
+  color: #000;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 27.28px;
+  text-align: left;
+}

@@ -1,0 +1,169 @@
+/* Outer container for the dialog */
+.dialogPaper {
+  width: 678px !important;
+  border-radius: 10px 0px 0px 0px !important;
+  gap: 0px !important;
+  opacity: 1 !important;
+  max-width: none !important;
+  max-height: none !important;
+}
+
+@media (max-width: 600px) {
+  .dialogPaper {
+    width: 90% !important; /* Adjust width for mobile screens */
+    height: 90% !important; /* Adjust height for mobile screens */
+    margin: 0 auto !important; /* Center the dialog */
+  }
+}
+
+/* Dialog content styles */
+.dialogContent {
+  height: 100%;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Dropdown styles */
+.dropdown {
+  background-color: #d9d9d94d !important;
+  height: 28px !important;
+}
+
+.dropdown .MuiOutlinedInput-notchedOutline {
+  border-color: transparent !important;
+}
+
+.dropdown:hover .MuiOutlinedInput-notchedOutline {
+  border-color: transparent !important;
+}
+
+.dropdown.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: transparent !important;
+}
+
+/* Dropdown menu styles */
+.dropdownMenu {
+  background-color: rgba(22, 66, 60, 0.5) !important;
+  width: auto !important;
+  min-width: 120px !important;
+}
+
+.dropdownMenu .MuiMenuItem-root {
+  color: #fff !important;
+  font-family: "Nunito Sans" !important;
+  font-size: 14px !important;
+  padding: 8px 16px !important;
+}
+
+/* Switch container styles */
+.switchContainer {
+  width: 287px !important;
+  height: 41px !important;
+  background-color: #d9d9d94d !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 4px !important;
+}
+
+@media (max-width: 600px) {
+  .switchContainer {
+    width: 100% !important; /* Make switch container full width on mobile */
+  }
+}
+
+/* Switch button styles */
+.switchButton {
+  width: 123px !important;
+  height: 33px !important;
+  background-color: transparent !important;
+  color: rgba(0, 0, 0, 0.7) !important;
+  text-transform: none !important;
+  border-radius: 16.5px !important;
+  border: none !important;
+  font-family: "Nunito Sans" !important;
+  font-size: 15px !important;
+  font-weight: 200 !important;
+  line-height: 20.46px !important;
+  text-align: left !important;
+  text-decoration-skip-ink: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 4px !important;
+}
+
+.switchButton.selected {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.switchButton:hover {
+  background-color: transparent !important;
+}
+
+.switchButton.selected:hover {
+  background-color: #ffffff !important;
+}
+
+/* File upload button styles */
+.fileUploadButton {
+  background-color: #d9d9d94d !important;
+  text-transform: none !important;
+  color: #000000 !important;
+  border: none !important;
+}
+
+.fileUploadButton:hover {
+  background-color: #d9d9d94d !important;
+}
+
+/* Text field styles */
+.textField {
+  background-color: #d9d9d94d !important;
+}
+
+.textField .MuiOutlinedInput-notchedOutline {
+  border-color: transparent !important;
+}
+
+.textField:hover .MuiOutlinedInput-notchedOutline {
+  border-color: transparent !important;
+}
+
+.textField.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: transparent !important;
+}
+
+/* Cancel button styles */
+.cancelButton {
+  width: 266px !important;
+  height: 53px !important;
+  border-radius: 12px !important;
+  background-color: #d9d9d94d !important;
+  color: #000 !important;
+  opacity: 1 !important;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+}
+
+.cancelButton:hover {
+  background-color: #d9d9d94d !important;
+}
+
+/* Create button styles */
+.createButton {
+  width: 266px !important;
+  height: 53px !important;
+  border-radius: 12px !important;
+  background-color: #16423c !important;
+  color: #fff !important;
+  opacity: 1 !important;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+}
+
+.createButton:hover {
+  background-color: #16423c !important;
+}
