@@ -88,9 +88,6 @@ export const UserInfo = ({ request }) => {
               <Typography sx={styles.userName}>
                 {request.createdBy.name}
               </Typography>
-              <Typography sx={styles.userEmail}>
-                {request.createdBy.email}
-              </Typography>
             </Box>
           </Box>
         </Grid>
@@ -115,9 +112,6 @@ export const UserInfo = ({ request }) => {
               <Typography sx={styles.userName}>
                 {request.assignedBy.name}
               </Typography>
-              <Typography sx={styles.userEmail}>
-                {request.assignedBy.email}
-              </Typography>
             </Box>
           </Box>
         </Grid>
@@ -141,9 +135,6 @@ export const UserInfo = ({ request }) => {
               </Typography>
               <Typography sx={styles.userName}>
                 {request.assignedTo.name}
-              </Typography>
-              <Typography sx={styles.userEmail}>
-                {request.assignedTo.email}
               </Typography>
             </Box>
           </Box>
