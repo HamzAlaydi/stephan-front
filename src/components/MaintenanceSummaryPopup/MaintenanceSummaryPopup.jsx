@@ -14,6 +14,7 @@ import {
   Button,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import AttachmentIcon from "@mui/icons-material/Attachment"; // Added for attachment icon
 import { UserInfo } from "../custom/Dialog/UserInfo/UserInfo";
 import "./MaintenanceSummaryPopup.css";
 
@@ -207,8 +208,12 @@ const MaintenanceSummaryPopup = ({
           </Grid>
           {console.log({ attachments })}
           {attachments?.length > 0 && (
-            <Grid item xs={12}>
-              <Typography variant="subtitle1" gutterBottom>
+            <Grid item xs={12} className="attachments-section">
+              <Typography
+                variant="subtitle1"
+                className="popup-section-header"
+                gutterBottom
+              >
                 Attachments
               </Typography>
               {showAttachments ? (
@@ -225,7 +230,8 @@ const MaintenanceSummaryPopup = ({
                 </div>
               ) : (
                 <Button
-                  variant="outlined"
+                  variant="contained"
+                  startIcon={<AttachmentIcon />}
                   onClick={() => setShowAttachments(true)}
                   className="show-attachments-btn"
                 >

@@ -17,7 +17,6 @@ body {
   justify-content: space-between;
   padding: 0 20px; /* Spacing inside the header */
   /* background-color: rgba(196, 218, 210, 0.2) !important;  */
-  overflow: hidden; /* Ensure no scrollbars within the header */
 }
 
 /* Search Box */
@@ -91,40 +90,80 @@ body {
   color: #666; /* Light text color */
 }
 
-/* Dropdown Menu */
+/* Dropdown Menu - Enhanced */
 .user-dropdown {
+  position: relative;
+}
+
+.user-dropdown-trigger {
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  position: relative;
+  padding: 5px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.user-dropdown-trigger:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-arrow {
+  color: #003f36;
+  transition: transform 0.2s ease;
+}
+
+.dropdown-arrow.rotated {
+  transform: rotate(180deg);
 }
 
 .dropdown-menu {
   position: absolute;
-  top: 50px; /* Position below the user info */
+  top: 55px; /* Position below the user info */
   right: 0;
   background-color: white;
   border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 1000;
-  width: 150px; /* Adjust width as needed */
+  width: 180px; /* Adjust width as needed */
+  overflow: hidden; /* Ensures the border-radius applies to the items too */
+  animation: dropdownFade 0.2s ease;
+}
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .dropdown-item {
+  display: flex;
+  align-items: center;
   width: 100%;
-  padding: 10px 20px;
+  padding: 12px 16px;
   text-align: left;
   background: none;
   border: none;
   cursor: pointer;
   font-size: 14px;
   color: #333;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item-icon {
+  margin-right: 10px;
+  font-size: 16px;
+  color: #666;
 }
 
 .dropdown-item:hover {
-  background-color: #f1f1f1;
+  background-color: #f5f5f5;
+  color: #003f36;
+}
+
+.dropdown-item:hover .dropdown-item-icon {
+  color: #003f36;
 }
 
 /* Media Queries */
@@ -158,33 +197,8 @@ body {
     align-items: right;
     gap: 5px; /* Reduced spacing between icons */
   }
-}
-
-/* Tablets */
-@media screen and (max-width: 900px) {
-  .user-name {
-    font-size: 15px; /* Reduced font size */
-    font-weight: 500; /* Medium text */
-    color: #003f36; /* Text color */
-  }
-
-  .user-department {
-    font-size: 10px; /* Reduced font size */
-    color: #666; /* Light text color */
-  }
-  .notification-icons {
-    display: flex;
-    align-items: center;
-    gap: 5px; /* Reduced spacing between icons */
-  }
-  .notification-icon {
-    width: 20px; /* Reduced icon width */
-    height: 20px; /* Reduced icon height */
-    cursor: pointer;
-  }
-  .user-info {
-    display: flex;
-    align-items: right;
-    gap: 5px; /* Reduced spacing between icons */
+  
+  .dropdown-menu {
+    width: 160px;
   }
 }
