@@ -9,23 +9,20 @@ const ActionButtons = ({
   loading = false,
 }) => {
   return (
-    <Grid container justifyContent="center" spacing={3}>
-      <Grid item>
-        <Button onClick={onCancel} className="cancelButton">
-          {cancelText}
-        </Button>
+    <div className="action-buttons">
+      <Grid container justifyContent="center" spacing={3}>
+        <Grid item>
+          <Button onClick={onCancel} className="cancelButton">
+            {cancelText}
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button type="submit" className="createButton" disabled={loading}>
+            {loading ? "Submitting..." : confirmText}
+          </Button>
+        </Grid>
       </Grid>
-      <Grid item>
-        <Button
-          type="submit"
-          className="createButton"
-          disabled={loading}
-          onClick={onConfirm}
-        >
-          {loading ? "Submitting..." : confirmText}
-        </Button>
-      </Grid>
-    </Grid>
+    </div>
   );
 };
 

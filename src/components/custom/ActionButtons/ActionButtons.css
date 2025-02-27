@@ -1,5 +1,5 @@
 /* Cancel button styles */
-.cancelButton {
+.action-buttons .cancelButton {
   width: 266px !important;
   height: 53px !important;
   border-radius: 12px !important;
@@ -16,7 +16,7 @@
 }
 
 /* Create button styles */
-.createButton {
+.action-buttons .createButton {
   width: 266px !important;
   height: 53px !important;
   border-radius: 12px !important;

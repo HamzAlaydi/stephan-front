@@ -1,16 +1,10 @@
-.page-title {
-  font-size: 24px;
-  font-weight: 700;
-  text-align: left;
-  color: #1e1e1e;
-}
-
+/* Base styles for the button */
 .big-right-btn {
+  display: inline-block;
   margin-top: 20px;
   width: 350px;
   height: 70px;
   border-radius: 10px;
-  opacity: 0px;
   background-color: #16423c;
   text-transform: none;
   color: #fff;
@@ -18,30 +12,33 @@
   font-weight: 700;
   line-height: 32.74px;
   text-decoration-skip-ink: none;
+  opacity: 1; /* Fixed opacity */
+  transition: background-color 0.3s ease; /* Smooth hover transition */
 }
 
+/* Hover state */
 .big-right-btn:hover {
-  background-color: #16423c;
-  opacity: 1px;
+  background-color: #16423c; /* Same as base color */
+  opacity: 1; /* Fixed opacity */
   cursor: pointer;
 }
 
+/* Responsive styles for smaller screens */
 @media (max-width: 900px) {
   .big-right-btn {
-    width: 100% !important; /* Button takes full width */
-    height: 50px !important; /* Reduce height */
-    font-size: 18px !important; /* Adjust font size */
-    line-height: 24px !important;
+    width: 100%; /* Button takes full width */
+    height: 50px; /* Reduce height */
+    font-size: 18px; /* Adjust font size */
+    line-height: 24px;
     text-align: center; /* Center-align text */
-    border-radius: 8px !important; /* Slightly smaller border radius */
+    border-radius: 8px; /* Slightly smaller border radius */
   }
 }
 
 @media (max-width: 650px) {
   .big-right-btn {
-    width: 100% !important; /* Button takes full width */
-    height: 50px !important; /* Reduce height */
-    font-size: 12px !important; /* Adjust font size */
-    line-height: 16px !important;
+    height: 50px; /* Reduce height */
+    font-size: 12px; /* Adjust font size */
+    line-height: 16px;
   }
 }
