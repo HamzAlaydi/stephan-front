@@ -102,18 +102,6 @@ const Login = () => {
 
           {serverError && <p className="server-error">{serverError}</p>}
 
-          <FormControlLabel
-            control={
-              <input
-                type="checkbox"
-                {...register("rememberMe")}
-                color="primary"
-              />
-            }
-            label="Remember Me"
-            className="remember-me"
-          />
-
           <button type="submit" className="login-button">
             LOG IN
           </button>

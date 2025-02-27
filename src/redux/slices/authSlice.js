@@ -10,7 +10,12 @@ export const login = createAsyncThunk(
       const response = await axios.post(`${rootRoute}/auth/login`, credentials);
       return response.data; // Return the response data (user details and token)
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(
+        error.response?.data || {
+          message: "Server is unreachable. Please try again later.",
+        }
+      );
+
     }
   }
 );
