@@ -17,7 +17,12 @@ const ActionButtons = ({
           </Button>
         </Grid>
         <Grid item>
-          <Button type="submit" className="createButton" disabled={loading}>
+          <Button
+            type="submit"
+            className="createButton"
+            disabled={loading}
+            onClick={onConfirm}
+          >
             {loading ? "Submitting..." : confirmText}
           </Button>
         </Grid>
