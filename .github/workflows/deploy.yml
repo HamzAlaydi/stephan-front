@@ -30,7 +30,7 @@ jobs:
           ls -la dist/
 
       - name: Deploy to EC2
-        uses: appleboy/scp-action@v0.1.0  # Correct version
+        uses: appleboy/scp-action@v0.1.0
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
@@ -48,17 +48,15 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            sudo chown -R www-data:www-data /var/www/stephan-front
-            sudo find /var/www/stephan-front -type d -exec chmod 755 {} \;
-            sudo find /var/www/stephan-front -type f -exec chmod 644 {} \;
-            sudo chmod g+s /var/www/stephan-front
+            chown -R www-data:www-data /var/www/stephan-front
+            find /var/www/stephan-front -type d -exec chmod 755 {} \;
+            find /var/www/stephan-front -type f -exec chmod 644 {} \;
 
-      - name: Restart services
+      - name: Restart Nginx
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            sudo systemctl restart nginx
-            sudo systemctl restart your-backend-service  # If applicable
+            systemctl restart nginx
