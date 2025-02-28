@@ -184,7 +184,9 @@ const ProductionLines = () => {
   };
 
   const handleSave = (row) => {
-    if (!editedProductionLineData.name?.trim()) {
+    const trimmedName = editedProductionLineData.name?.trim();
+
+    if (!trimmedName) {
       showToast({
         message: "Production line name cannot be empty",
         type: "error",
@@ -192,14 +194,19 @@ const ProductionLines = () => {
       return;
     }
 
+    if (row.name === trimmedName) {
+      cancelEdit();
+      return;
+    }
+
     dispatch(
       updateProductionLine({
-        id: row._id, // Ensure ID is correct
-        productionLineData: { name: editedProductionLineData.name }, // Ensure correct structure
+        id: row._id,
+        productionLineData: { name: trimmedName },
       })
     );
-    window.location.reload();
   };
+
 
   const confirmDelete = (lineId) => {
     setProductionLineToDelete(lineId);

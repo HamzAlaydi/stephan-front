@@ -31,26 +31,18 @@ function App() {
 
             {/* Protected routes */}
             <Route element={<MainLayout />}>
-              {routes.map((route) =>
-                route.protected ? (
+              {routes.map(({ path, component: Component, protected: isProtected, allowedDepartments }) =>
+                isProtected ? (
                   <Route
-                    key={route.path}
-                    element={
-                      <ProtectedRoute
-                        allowedDepartments={route.allowedDepartments}
-                      />
-                    }
+                    key={path}
+                    element={<ProtectedRoute allowedDepartments={allowedDepartments} />}
                   >
-                    <Route path={route.path} element={route.component} />
+                    <Route path={path} element={<Component />} /> 
                   </Route>
                 ) : (
-                  <Route
-                    key={route.path}
-                    path={route.path}
-                    element={route.component}
-                  />
+                  <Route key={path} path={path} element={<Component />} />
                 )
-              )}
+                )}
             </Route>
           </Routes>
         </Router>

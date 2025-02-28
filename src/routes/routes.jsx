@@ -19,7 +19,7 @@ const MaintenanceRequestWrapper = () => {
 const routes = [
   {
     path: "/maintenance-request",
-    component: <PreviousRequests />,
+    component: PreviousRequests, // ✅ No JSX
     protected: true,
     allowedDepartments: [
       "machine supervisor",
@@ -31,38 +31,37 @@ const routes = [
   },
   {
     path: "/summaries",
-    component: <Summaries />,
+    component: Summaries, // ✅ No JSX
     protected: true,
     allowedDepartments: ["maintenance supervisor"],
   },
-
   {
     path: "/production-lines",
-    component: <ProductionLines />,
+    component: ProductionLines,
     protected: true,
     allowedDepartments: ["maintenance supervisor", "director supervisor"],
   },
   {
     path: "/production-line-profile/:id",
-    component: <ProductionLineProfile />,
+    component: ProductionLineProfile,
     protected: true,
     allowedDepartments: ["maintenance supervisor", "director supervisor"],
   },
   {
     path: "/machine-profile/:id",
-    component: <MachineProfile />,
+    component: MachineProfile,
     protected: true,
     allowedDepartments: ["maintenance supervisor", "director supervisor"],
   },
   {
     path: "/stock",
-    component: <Stock />,
+    component: Stock,
     protected: true,
     allowedDepartments: ["director supervisor"],
   },
   {
     path: "/settings",
-    component: <p>Settings Page</p>,
+    component: () => <p>Settings Page</p>, // ✅ Use a function for inline JSX
     protected: false,
   },
 ];
