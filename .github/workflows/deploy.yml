@@ -42,7 +42,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_KEY }}
           source: "dist/*"
-          target: "/var/www/stephan-front/dist"
+          target: "/var/www/stephan-front"
           overwrite: true
           strip_components: 0
           debug: true
