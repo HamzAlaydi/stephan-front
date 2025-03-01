@@ -44,3 +44,4 @@ jobs:
             cd /var/www/stephan-front
             pm2 restart all
             sudo systemctl restart nginx
+            
