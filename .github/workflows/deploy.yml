@@ -23,6 +23,18 @@ jobs:
           npm run build
           ls -la dist/
 
+      - name: Prepare EC2 Directory
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            sudo rm -rf /var/www/stephan-front/dist
+            sudo mkdir -p /var/www/stephan-front/dist
+            sudo chown -R ubuntu:ubuntu /var/www/stephan-front/dist
+            sudo chmod -R 755 /var/www/stephan-front/dist
+
       - name: Deploy Frontend
         uses: appleboy/scp-action@v0.1.6
         with:
