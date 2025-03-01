@@ -57,6 +57,7 @@ jobs:
             sudo chown -R www-data:www-data /var/www/stephan-front/dist
             sudo find /var/www/stephan-front/dist -type d -exec chmod 755 {} \;
             sudo find /var/www/stephan-front/dist -type f -exec chmod 644 {} \;
+            sudo nginx -t  # Test Nginx configuration
             sudo systemctl restart nginx
 
       - name: Deploy Backend
