@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import "./Sidebar.css";
 import logo from "../../../assets/images/stephanLogo.png";
 import { Divider } from "@mui/material";
 import gearIcon from "../../../assets/icons/gearIcon.png";
@@ -10,6 +9,7 @@ import toolIcon from "../../../assets/icons/tools.png";
 import stockIcon from "../../../assets/icons/stockIcon.png";
 import summaryIcon from "../../../assets/icons/summaryIcon.png";
 import { accessConfig } from "../../../utils/accessConfig"; // Import the access configuration
+import "./Sidebar.css";
 
 const Sidebar = () => {
   const [activeTab, setActiveTab] = useState("Maintenance Request");

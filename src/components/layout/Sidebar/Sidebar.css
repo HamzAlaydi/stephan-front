@@ -28,7 +28,7 @@
 .slogo {
   width: 100%; /* Scaled-down logo for smaller screens */
   height: auto; /* Maintain aspect ratio */
-  margin-top: 250px;
+  margin-top: 150px !important;
 }
 
 .spacer {
