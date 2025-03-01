@@ -13,42 +13,7 @@ import ScheduleReminder from "./components/ScheduleReminder/ScheduleReminder";
 function App() {
   const { toast, hideToast } = useToast();
 
-  return (
-    <div className="App">
-      <ScheduleReminder />
-      <Toast
-        open={toast.open}
-        onClose={hideToast}
-        message={toast.message}
-        type={toast.type}
-      />
-      <ThemeProvider theme={theme}>
-        <Router>
-          <Routes>
-            {/* Public routes */}
-            <Route path="/" element={<Login />} />
-            <Route path="/unauthorized" element={<Unauthorized />} />
-
-            {/* Protected routes */}
-            <Route element={<MainLayout />}>
-              {routes.map(({ path, component: Component, protected: isProtected, allowedDepartments }) =>
-                isProtected ? (
-                  <Route
-                    key={path}
-                    element={<ProtectedRoute allowedDepartments={allowedDepartments} />}
-                  >
-                    <Route path={path} element={<Component />} /> 
-                  </Route>
-                ) : (
-                  <Route key={path} path={path} element={<Component />} />
-                )
-                )}
-            </Route>
-          </Routes>
-        </Router>
-      </ThemeProvider>
-    </div>
-  );
+  return <div className="App">By the name of Allah</div>;
 }
 
 export default App;
