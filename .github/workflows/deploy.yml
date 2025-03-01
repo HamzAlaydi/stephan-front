@@ -19,8 +19,9 @@ jobs:
 
       - name: Build production
         run: |
+          rm -rf dist/  # Remove old build
           npm run build
-          ls -la dist/  # Verify build output
+          ls -la dist/  # Verify new build output
 
       - name: Deploy files to EC2
         uses: appleboy/scp-action@v0.1.6
@@ -34,6 +35,7 @@ jobs:
           strip_components: 0 # Preserve directory structure
           debug: true # Enable debug logs
           script: |
+            sudo rm -rf /var/www/stephan-front/*  # Delete old build before copying new files
             sudo chown -R www-data:www-data /var/www/stephan-front
             sudo find /var/www/stephan-front -type d -exec chmod 755 {} \;
             sudo find /var/www/stephan-front -type f -exec chmod 644 {} \;
