@@ -23,22 +23,38 @@ jobs:
           npm run build
           ls -la dist/  # Verify new build output
 
+      - name: Clean Old Files on EC2
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            sudo rm -rf /var/www/stephan-front/dist/*  # Clean only the dist directory
+            sudo chown -R ubuntu:ubuntu /var/www/stephan-front/dist  # Ensure correct ownership
+
       - name: Deploy files to EC2
         uses: appleboy/scp-action@v0.1.6
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.SSH_KEY }}
-          source: "dist/*" # Deploy all files from dist/
-          target: "/var/www/stephan-front"
-          overwrite: true # Ensure files are overwritten
-          strip_components: 0 # Preserve directory structure
-          debug: true # Enable debug logs
+          source: "dist/*"  # Deploy all files from dist/
+          target: "/var/www/stephan-front/dist"  # Deploy directly to dist/
+          overwrite: true  # Ensure files are overwritten
+          strip_components: 0  # Preserve directory structure
+          debug: true  # Enable debug logs
+
+      - name: Set Permissions
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_KEY }}
           script: |
-            sudo rm -rf /var/www/stephan-front/*  # Delete old build before copying new files
-            sudo chown -R www-data:www-data /var/www/stephan-front
-            sudo find /var/www/stephan-front -type d -exec chmod 755 {} \;
-            sudo find /var/www/stephan-front -type f -exec chmod 644 {} \;
+            sudo chown -R www-data:www-data /var/www/stephan-front/dist
+            sudo find /var/www/stephan-front/dist -type d -exec chmod 755 {} \;
+            sudo find /var/www/stephan-front/dist -type f -exec chmod 644 {} \;
 
       - name: Restart server
         uses: appleboy/ssh-action@v1.0.0

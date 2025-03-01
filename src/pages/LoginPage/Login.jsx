@@ -63,7 +63,58 @@ const Login = () => {
     }
   };
 
-  return <div className="login-page">TTTTTT</div>;
+  return (
+    <div className="login-page">
+      <div className="left-section">
+        <img src={logo} alt="Stephano Group Logo" className="logo" />
+      </div>
+
+      <div className="middle-gear">
+        <div className="gear-circle">
+          <img src={gearIcon} alt="Gear Icon" className="gear-icon" />
+        </div>
+      </div>
+
+      <div className="right-section">
+        <h2 className="welcome-text">Welcome ...</h2>
+        <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+          <TextField
+            type="email"
+            variant="outlined"
+            placeholder="Enter Email"
+            fullWidth
+            className="input-field"
+            {...register("email", { required: "Email is required" })}
+            error={!!errors.email}
+            helperText={errors.email?.message}
+          />
+
+          <TextField
+            type="password"
+            variant="outlined"
+            fullWidth
+            placeholder="Enter Password"
+            className="input-field"
+            {...register("password", { required: "Password is required" })}
+            error={!!errors.password}
+            helperText={errors.password?.message}
+          />
+
+          {serverError && <p className="server-error">{serverError}</p>}
+
+          <button type="submit" className="login-button">
+            LOG IN
+          </button>
+        </form>
+      </div>
+
+      <SuccessPopup
+        open={successOpen}
+        onClose={() => setSuccessOpen(false)}
+        message="Login Successful!"
+      />
+    </div>
+  );
 };
 
 export default Login;
