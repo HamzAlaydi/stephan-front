@@ -28,11 +28,11 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.SSH_KEY }}
-          source: "dist/*"  # Deploy all files from dist/
+          source: "dist/*" # Deploy all files from dist/
           target: "/var/www/stephan-front"
-          overwrite: true  # Ensure files are overwritten
-          strip_components: 0  # Preserve directory structure
-          debug: true  # Enable debug logs
+          overwrite: true # Ensure files are overwritten
+          strip_components: 0 # Preserve directory structure
+          debug: true # Enable debug logs
           script: |
             sudo chown -R www-data:www-data /var/www/stephan-front
             sudo find /var/www/stephan-front -type d -exec chmod 755 {} \;
@@ -45,5 +45,6 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_KEY }}
           script: |
-            pm2 restart stephan-backend
+            cd /var/www/stephan-backend
+            pm2 restart stephan-backend || pm2 start server.js --name "stephan-backend"
             sudo systemctl restart nginx
