@@ -31,10 +31,20 @@ const calculateDowntime = (start, end) => {
   // If the downtime is zero or invalid, return 0 minutes
   if (downtimeInMilliseconds <= 0) return "0 minutes";
 
-  const downtimeInMinutes = Math.floor(downtimeInMilliseconds / (1000 * 60));
+  const minutes = Math.floor(downtimeInMilliseconds / (1000 * 60));
+  const days = Math.floor(minutes / (60 * 24));
+  const hours = Math.floor((minutes % (60 * 24)) / 60);
+  const remainingMinutes = minutes % 60;
 
-  return `${downtimeInMinutes} minutes`;
+  let result = [];
+  if (days > 0) result.push(`${days} day${days > 1 ? "s" : ""}`);
+  if (hours > 0) result.push(`${hours} hour${hours > 1 ? "s" : ""}`);
+  if (remainingMinutes > 0)
+    result.push(`${remainingMinutes} minute${remainingMinutes > 1 ? "s" : ""}`);
+
+  return result.join(", ");
 };
+
 
 const MaintenanceSummaryPopup = ({
   open,
