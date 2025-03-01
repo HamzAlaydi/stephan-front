@@ -24,14 +24,16 @@ jobs:
           ls -la dist/
 
       - name: Deploy Frontend
-        uses: burnett01/rsync-deployments@5.2.3
+        uses: appleboy/scp-action@v0.1.6
         with:
-          switches: -avzr --delete
-          path: dist/
-          remote_path: /var/www/stephan-front/dist/
-          remote_host: ${{ secrets.EC2_HOST }}
-          remote_user: ubuntu
-          remote_key: ${{ secrets.SSH_KEY }}
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_KEY }}
+          source: "dist/*"
+          target: "/var/www/stephan-front/dist"
+          overwrite: true
+          strip_components: 0
+          debug: true
 
       - name: Configure Permissions
         uses: appleboy/ssh-action@v1.0.0
