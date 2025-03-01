@@ -26,7 +26,7 @@ jobs:
         uses: appleboy/scp-action@v0.1.6
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: root
+          username: ubuntu
           key: ${{ secrets.SSH_KEY }}
           source: "dist/"  # Changed from "client/dist/*"
           target: "/var/www/stephan-front"
@@ -38,7 +38,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: root
+          username: ubuntu
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd /var/www/stephan-front
