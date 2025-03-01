@@ -66,6 +66,24 @@ const RequestPopup = ({
     }
   }, [open, dispatch, isSupervisor]);
 
+  const formatTime = (minutes) => {
+    if (minutes <= 0) return "0 minutes";
+
+    const days = Math.floor(minutes / 1440); // 1 day = 1440 minutes
+    const hours = Math.floor((minutes % 1440) / 60);
+    const remainingMinutes = minutes % 60;
+
+    return [
+      days > 0 ? `${days} day${days > 1 ? "s" : ""}` : "",
+      hours > 0 ? `${hours} hour${hours > 1 ? "s" : ""}` : "",
+      remainingMinutes > 0
+        ? `${remainingMinutes} minute${remainingMinutes > 1 ? "s" : ""}`
+        : "",
+    ]
+      .filter(Boolean)
+      .join(", ");
+  };
+
   const handleStart = () => {
     dispatch(
       updateRequestStatus({
@@ -206,12 +224,12 @@ const RequestPopup = ({
               />
               <InfoRow
                 label="Production Line Downtime"
-                value={`${selectedCard?.productionLineDowntime || 0} minutes`}
+                value={formatTime(selectedCard?.productionLineDowntime || 0)}
               />
 
               <InfoRow
                 label="Machine Downtime"
-                value={`${selectedCard?.machineDowntime || 0} minutes`}
+                value={formatTime(selectedCard?.machineDowntime || 0)}
               />
               {selectedCard?.attachments?.length > 0 && (
                 <Grid item xs={12}>
