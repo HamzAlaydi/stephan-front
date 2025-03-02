@@ -25,6 +25,7 @@ import {
 } from "../../redux/slices/employeesSlice";
 import EditEmployeeDialog from "../../components/EditEmployeeDialog/EditEmployeeDialog";
 import AddEmployeePopup from "../../components/AddEmployeePopup/AddEmployeePopup";
+import { S3 } from "../../Root.route";
 
 // TabPanel component for tab content
 function TabPanel(props) {
@@ -53,12 +54,9 @@ const Settings = () => {
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
   const [employeeToDelete, setEmployeeToDelete] = useState(null);
 
-  const {
-    employees,
-    status,
-    error,
-    deleteStatus,
-  } = useSelector((state) => state.employees);
+  const { employees, status, error, deleteStatus } = useSelector(
+    (state) => state.employees
+  );
 
   useEffect(() => {
     if (status === "idle") {
@@ -123,8 +121,6 @@ const Settings = () => {
   };
 
   const handleDelete = async () => {
-    
-    
     if (!employeeToDelete) return;
     dispatch(deleteEmployee(employeeToDelete));
   };
@@ -140,7 +136,7 @@ const Settings = () => {
       label: "",
       render: (row) => (
         <Avatar
-          src={row.photoUrl || "/placeholder-user.png"} // Use photoUrl or a placeholder
+          src={`${S3}/${row.photo}` || "/placeholder-user.png"}
           alt={row.name}
           sx={{ width: 40, height: 40 }}
         />
@@ -148,10 +144,10 @@ const Settings = () => {
     },
     { key: "name", label: "Name", render: (row) => row.name || "N/A" },
     { key: "email", label: "Email", render: (row) => row.email || "N/A" },
-    { 
-      key: "department", 
-      label: "Department", 
-      render: (row) => row.department?.name || "N/A" 
+    {
+      key: "department",
+      label: "Department",
+      render: (row) => row.department?.name || "N/A",
     },
     {
       key: "actions",
@@ -182,18 +178,22 @@ const Settings = () => {
     return (
       (row.name && row.name.toLowerCase().includes(searchText)) ||
       (row.email && row.email.toLowerCase().includes(searchText)) ||
-      (row.department?.name && row.department.name.toLowerCase().includes(searchText))
+      (row.department?.name &&
+        row.department.name.toLowerCase().includes(searchText))
     );
   };
 
   return (
-    <Box sx={{ flexGrow: 1, overflowX: "hidden" }} className="normal-page-style">
-      <Top 
-        title="Settings" 
+    <Box
+      sx={{ flexGrow: 1, overflowX: "hidden" }}
+      className="normal-page-style"
+    >
+      <Top
+        title="Settings"
         btnName="Add Employee"
         onButtonClick={handleAddEmployee}
       />
-      
+
       <Paper sx={{ p: 2, mt: 2 }}>
         <Tabs
           value={tabValue}
@@ -209,18 +209,18 @@ const Settings = () => {
           {status === "loading" ? (
             <Loading />
           ) : (
-            <PMTable 
-            columns={employeeColumns} 
-            data={employees} 
-            dataKey="id"
-            rowKey={(row) => row.id}
-            pagination
-            itemsPerPage={5}
-            tableName="Employees List"
-            showFilter
-            filterFunction={filterFunction}
-            filterPlaceholder="Search employees..."
-          />
+            <PMTable
+              columns={employeeColumns}
+              data={employees}
+              dataKey="id"
+              rowKey={(row) => row.id}
+              pagination
+              itemsPerPage={5}
+              tableName="Employees List"
+              showFilter
+              filterFunction={filterFunction}
+              filterPlaceholder="Search employees..."
+            />
           )}
         </TabPanel>
 
@@ -248,7 +248,6 @@ const Settings = () => {
         onEmployeeUpdated={handleEmployeeUpdated}
       />
 
-
       <DeleteConfirmDialog
         open={deleteConfirmOpen}
         onClose={() => setDeleteConfirmOpen(false)}
@@ -258,11 +257,11 @@ const Settings = () => {
         isDeleting={deleteStatus === "loading"}
       />
 
-      <Toast 
-        open={toast.open} 
-        message={toast.message} 
-        type={toast.type} 
-        onClose={hideToast} 
+      <Toast
+        open={toast.open}
+        message={toast.message}
+        type={toast.type}
+        onClose={hideToast}
       />
     </Box>
   );

@@ -154,6 +154,9 @@ const PMTable = ({
                   {columns.map((column) => {
                     // Hide less important columns on small screens
                     if (isSmallScreen && column.hideOnSmall) return null;
+                    {
+                      console.log({ row });
+                    }
                     return (
                       <TableCell
                         key={column.key}
