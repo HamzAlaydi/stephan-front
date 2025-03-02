@@ -50,24 +50,31 @@ export const createEmployee = createAsyncThunk(
 );
 export const updateEmployee = createAsyncThunk(
   "employees/updateEmployee",
-  async ({ id, employeeData }, { rejectWithValue }) => {
+  async ({ id, employeeData }, { getState, rejectWithValue }) => {
     try {
+      const state = getState();
+      const token = state.auth.token;
+
       const config = {
         headers: {
-          "Content-Type": "multipart/form-data", // Ensure correct ContentType
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data", // Ensure correct Content-Type
         },
       };
+
       const response = await axios.patch(
         `${rootRoute}/auth/${id}`,
         employeeData,
         config
       );
+
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response?.data || error.message);
     }
   }
 );
+
 // Delete employee
 export const deleteEmployee = createAsyncThunk(
   "employees/deleteEmployee",
