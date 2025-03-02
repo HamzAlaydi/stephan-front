@@ -69,6 +69,9 @@ const Sidebar = () => {
       case "Summaries":
         navigate("/summaries");
         break;
+      case "Settings":
+        navigate("/settings");
+        break;
 
       case "Stock":
         navigate("/stock");

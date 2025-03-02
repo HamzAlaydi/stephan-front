@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../redux/slices/authSlice";
 import "./Header.css";
-import { rootRoute } from "../../../Root.route";
+import { rootRoute, S3 } from "../../../Root.route";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -51,9 +51,11 @@ const Header = () => {
         {/* User Avatar and Dropdown */}
         <div ref={dropdownRef} className="user-dropdown">
           <div className="user-dropdown-trigger" onClick={toggleDropdown}>
+            {console.log({ user })}
+
             {user?.photo ? (
               <img
-                src={`${rootRoute}/uploads/${user.photo}`}
+                src={`${S3}/${user.photo}` || ""}
                 className="avatar-icon"
                 alt="User Avatar"
               />

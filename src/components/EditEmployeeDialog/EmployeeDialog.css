@@ -1,0 +1,114 @@
+/* Outer container for the dialog */
+.dialogPaper {
+    width: 678px !important;
+    border-radius: 10px 0px 0px 0px !important;
+    gap: 0px !important;
+    opacity: 1 !important;
+    max-width: none !important;
+    max-height: none !important;
+  }
+  
+  @media (max-width: 600px) {
+    .dialogPaper {
+      width: 90% !important; /* Adjust width for mobile screens */
+      height: 90% !important; /* Adjust height for mobile screens */
+      margin: 0 auto !important; /* Center the dialog */
+    }
+  }
+  
+  /* Dialog content styles */
+  .dialogContent {
+    height: 100%;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 20px !important;
+  }
+  
+  /* Dropdown styles */
+  .dropdown {
+    background-color: #d9d9d94d !important;
+    min-height: 28px !important;
+  }
+  
+  .dropdown .MuiOutlinedInput-notchedOutline {
+    border-color: transparent !important;
+  }
+  
+  .dropdown:hover .MuiOutlinedInput-notchedOutline {
+    border-color: transparent !important;
+  }
+  
+  .dropdown.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: transparent !important;
+  }
+  
+  /* Text field styles */
+  .textField {
+    background-color: #d9d9d94d !important;
+  }
+  
+  .textField .MuiOutlinedInput-notchedOutline {
+    border-color: transparent !important;
+  }
+  
+  .textField:hover .MuiOutlinedInput-notchedOutline {
+    border-color: transparent !important;
+  }
+  
+  .textField.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: transparent !important;
+  }
+  
+  /* File upload button styles */
+  .fileUploadButton {
+    background-color: #d9d9d94d !important;
+    text-transform: none !important;
+    color: #000000 !important;
+    border: none !important;
+  }
+  
+  .fileUploadButton:hover {
+    background-color: #d9d9d94d !important;
+  }
+  
+  /* Action buttons container */
+  .actionButtonsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  /* Cancel button styles */
+  .cancelButton {
+    width: 266px !important;
+    height: 53px !important;
+    border-radius: 12px !important;
+    background-color: #d9d9d94d !important;
+    color: #000 !important;
+    opacity: 1 !important;
+    font-size: 24px !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
+  }
+  
+  .cancelButton:hover {
+    background-color: #d9d9d94d !important;
+  }
+  
+  /* Create/Save button styles */
+  .confirmButton {
+    width: 266px !important;
+    height: 53px !important;
+    border-radius: 12px !important;
+    background-color: #16423c !important;
+    color: #fff !important;
+    opacity: 1 !important;
+    font-size: 24px !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
+  }
+  
+  .confirmButton:hover {
+    background-color: #16423c !important;
+  }

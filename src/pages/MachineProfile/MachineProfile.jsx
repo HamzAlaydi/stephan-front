@@ -143,7 +143,7 @@ const MachineProfile = () => {
           Maintenance History
         </Typography>
       </Box>
-
+      {console.log({ selectedMaintenance })}
       <PMTable
         data={maintenanceHistory || []}
         columns={maintenanceColumns}

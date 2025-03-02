@@ -1,4 +1,5 @@
 import { Grid, Typography, Avatar, Box } from "@mui/material";
+import { S3 } from "../../../../Root.route";
 
 const styles = {
   container: {
@@ -66,15 +67,15 @@ export const UserInfo = ({ request }) => {
 
   return (
     <Grid container spacing={2}>
-      {" "}
-      {/* Use Grid container */}
+ {/* Use Grid container */}
       {request.createdBy && (
         <Grid item xs={12} sm={4}>
           {" "}
           {/* Grid item, takes full width on xs, 4 columns on sm */}
           <Box sx={styles.userSection}>
+            {}
             <Avatar
-              src={request.createdBy.photo || "/default_avatar.png"}
+              src={`${S3}/${request.createdBy.photo}` || "/default_avatar.png"}
               alt={request.createdBy.name}
               sx={styles.avatar}
             />
@@ -97,8 +98,9 @@ export const UserInfo = ({ request }) => {
           {" "}
           {/* Grid item, takes full width on xs, 4 columns on sm */}
           <Box sx={styles.userSection}>
+            {}
             <Avatar
-              src={request.assignedBy.photo || "/default_avatar.png"}
+              src={`${S3}/${request.assignedBy.photo}` || "/default_avatar.png"}
               alt={request.assignedBy.name}
               sx={styles.avatar}
             />
@@ -121,8 +123,12 @@ export const UserInfo = ({ request }) => {
           {" "}
           {/* Grid item, takes full width on xs, 4 columns on sm */}
           <Box sx={styles.userSection}>
+            {console.log(request.assignedTo.photo)}
             <Avatar
-              src={request.assignedTo.photo || "/default_avatar.png"}
+              src={
+                `${S3}/${request.assignedTo.photo}` ||
+                `${request.assignedTo.photo}`
+              }
               alt={request.assignedTo.name}
               sx={styles.avatar}
             />

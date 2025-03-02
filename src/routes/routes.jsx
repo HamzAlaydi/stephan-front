@@ -6,6 +6,7 @@ import TechnicianRequests from "../pages/TechnicianRequests/TechnicianRequests";
 import Stock from "../pages/Stock/Stock";
 import Summaries from "../pages/Summaries/Summaries";
 import { useSelector } from "react-redux";
+import Settings from "../pages/Settings/Settings";
 
 const MaintenanceRequestWrapper = () => {
   const { user } = useSelector((state) => state.auth);
@@ -61,7 +62,7 @@ const routes = [
   },
   {
     path: "/settings",
-    component: () => <p>Settings Page</p>, // ✅ Use a function for inline JSX
+    component: Settings, // ✅ Use a function for inline JSX
     protected: false,
   },
 ];
