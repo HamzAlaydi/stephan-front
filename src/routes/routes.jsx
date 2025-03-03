@@ -27,7 +27,7 @@ const routes = [
       "maintenance supervisor",
       "director supervisor",
       "maintenance technical",
-      "production line supervisor",
+      "production",
     ],
   },
   {

@@ -30,7 +30,7 @@ import { S3 } from "../../Root.route";
 const staticDepartments = [
   { _id: "67b5a85c1a5627f2148dbeef", name: "Maintenance Supervisor" },
   { _id: "67b5a907070d7b7bb50f202d", name: "Maintenance Technical" },
-  { _id: "67b5a958070d7b7bb50f202f", name: "Production Line Supervisor" },
+  { _id: "67b5a958070d7b7bb50f202f", name: "Production" },
 ];
 
 const EditEmployeeDialog = ({ open, onClose, employee, onEmployeeUpdated }) => {

@@ -1,6 +1,6 @@
 // accessConfig.js
 export const accessConfig = {
-  "production line supervisor": ["/maintenance-request"],
+  production: ["/maintenance-request"],
   "maintenance supervisor": [
     "/maintenance-request",
     "/production-lines",
