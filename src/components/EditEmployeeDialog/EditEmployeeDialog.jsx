@@ -21,24 +21,26 @@ import {
 } from "@mui/material";
 import { CloudUpload } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { updateEmployee, resetUpdateStatus } from "../../redux/slices/employeesSlice";
+import {
+  updateEmployee,
+  resetUpdateStatus,
+} from "../../redux/slices/employeesSlice";
 import { DialogHeader } from "../custom/Dialog/DialogHeader/DialogHeader";
 import ActionButtons from "../custom/ActionButtons/ActionButtons";
 import "./EmployeeDialog.css";
 import { S3 } from "../../Root.route";
-
-const staticDepartments = [
-  { _id: "67b5a85c1a5627f2148dbeef", name: "Maintenance Supervisor" },
-  { _id: "67b5a907070d7b7bb50f202d", name: "Maintenance Technical" },
-  { _id: "67b5a958070d7b7bb50f202f", name: "Production" },
-];
+import { fetchDepartments } from "../../redux/slices/departmentsSlice";
 
 const EditEmployeeDialog = ({ open, onClose, employee, onEmployeeUpdated }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const dispatch = useDispatch();
   const { updateStatus, error } = useSelector((state) => state.employees);
-
+  const {
+    departments,
+    status: deptStatus,
+    error: deptError,
+  } = useSelector((state) => state.departments);
   const [employeeData, setEmployeeData] = useState({
     name: "",
     email: "",
@@ -76,6 +78,12 @@ const EditEmployeeDialog = ({ open, onClose, employee, onEmployeeUpdated }) => {
     }
   }, [employee]);
 
+  useEffect(() => {
+    if (open) {
+      dispatch(fetchDepartments());
+    }
+  }, [open, dispatch]);
+
   // Handle form field changes
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -111,7 +119,8 @@ const EditEmployeeDialog = ({ open, onClose, employee, onEmployeeUpdated }) => {
     } else if (!/\S+@\S+\.\S+/.test(employeeData.email)) {
       newErrors.email = "Email is invalid";
     }
-    if (!employeeData.department) newErrors.department = "Department is required";
+    if (!employeeData.department)
+      newErrors.department = "Department is required";
     if (changePassword) {
       if (!employeeData.password) {
         newErrors.password = "Password is required";
@@ -122,7 +131,10 @@ const EditEmployeeDialog = ({ open, onClose, employee, onEmployeeUpdated }) => {
         newErrors.confirmPassword = "Passwords do not match";
       }
     }
-    if (employeeData.overtimeHoursPrice && isNaN(employeeData.overtimeHoursPrice)) {
+    if (
+      employeeData.overtimeHoursPrice &&
+      isNaN(employeeData.overtimeHoursPrice)
+    ) {
       newErrors.overtimeHoursPrice = "Must be a number";
     }
 
@@ -130,30 +142,39 @@ const EditEmployeeDialog = ({ open, onClose, employee, onEmployeeUpdated }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-  
+
     const formData = new FormData();
-  
+
     // Append changed fields
-    if (employeeData.name !== employee.name) formData.append("name", employeeData.name);
-    if (employeeData.email !== employee.email) formData.append("email", employeeData.email);
-    if (employeeData.department !== employee.department._id) formData.append("department", employeeData.department);
-    if (employeeData.overtimeHoursPrice.toString() !== employee.overtimeHoursPrice.toString()) {
+    if (employeeData.name !== employee.name)
+      formData.append("name", employeeData.name);
+    if (employeeData.email !== employee.email)
+      formData.append("email", employeeData.email);
+    if (employeeData.department !== employee.department._id)
+      formData.append("department", employeeData.department);
+    if (
+      employeeData.overtimeHoursPrice.toString() !==
+      employee.overtimeHoursPrice.toString()
+    ) {
       formData.append("overtimeHoursPrice", employeeData.overtimeHoursPrice);
     }
-    if (employeeData.isAdmin !== employee.isAdmin) formData.append("isAdmin", employeeData.isAdmin);
-    if (changePassword && employeeData.password) formData.append("password", employeeData.password);
-  
+    if (employeeData.isAdmin !== employee.isAdmin)
+      formData.append("isAdmin", employeeData.isAdmin);
+    if (changePassword && employeeData.password)
+      formData.append("password", employeeData.password);
+
     // Append the file from the file input
     if (employeeData.photo instanceof File) {
       formData.append("photo", employeeData.photo); // Key must match multer's field name
     }
-  
+
     try {
-      await dispatch(updateEmployee({ id: employee._id, employeeData: formData })).unwrap();
+      await dispatch(
+        updateEmployee({ id: employee._id, employeeData: formData })
+      ).unwrap();
       onEmployeeUpdated();
       onClose();
     } catch (err) {
@@ -260,14 +281,23 @@ const EditEmployeeDialog = ({ open, onClose, employee, onEmployeeUpdated }) => {
                   value={employeeData.department}
                   onChange={handleChange}
                   label="Department"
+                  disabled={deptStatus === "loading"}
                 >
-                  {staticDepartments.map((dept) => (
-                    <MenuItem key={dept._id} value={dept._id}>
-                      {dept.name}
-                    </MenuItem>
-                  ))}
+                  {deptStatus === "loading" ? (
+                    <MenuItem disabled>Loading departments...</MenuItem>
+                  ) : deptError ? (
+                    <MenuItem disabled>{deptError}</MenuItem>
+                  ) : (
+                    departments.map((dept) => (
+                      <MenuItem key={dept._id} value={dept._id}>
+                        {dept.name}
+                      </MenuItem>
+                    ))
+                  )}
                 </Select>
-                {errors.department && <FormHelperText>{errors.department}</FormHelperText>}
+                {errors.department && (
+                  <FormHelperText>{errors.department}</FormHelperText>
+                )}
               </FormControl>
             </Grid>
 

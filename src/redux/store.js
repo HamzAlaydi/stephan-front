@@ -6,6 +6,8 @@ import maintenanceRequestsReducer from "./slices/maintenanceRequestsSlice";
 import productionLinesReducer from "./slices/productionLinesSlice";
 import machinesReducer from "./slices/machinesSlice";
 import employeeReducer from "./slices/employeesSlice";
+import departmentsReducer from "./slices/departmentsSlice"; // Add this
+
 const store = configureStore({
   reducer: {
     auth: authReducer, // Add your reducers here
@@ -15,6 +17,7 @@ const store = configureStore({
     getRequest: getRequestReducer, // New slice
     maintenanceRequests: maintenanceRequestsReducer,
     employees: employeeReducer,
+    departments: departmentsReducer,
   },
 });
 

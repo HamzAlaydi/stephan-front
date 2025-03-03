@@ -19,7 +19,6 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
 import {
   createEmployee,
   resetCreateStatus,
@@ -28,12 +27,8 @@ import { DialogHeader } from "../custom/Dialog/DialogHeader/DialogHeader";
 import ActionButtons from "../custom/ActionButtons/ActionButtons";
 import "./EmployeeDialog.css";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
-
-const staticDepartments = [
-  { _id: "67b5a85c1a5627f2148dbeef", name: "Maintenance Supervisor" },
-  { _id: "67b5a907070d7b7bb50f202d", name: "Maintenance Technical" },
-  { _id: "67b5a958070d7b7bb50f202f", name: "Production" },
-];
+import { useDispatch, useSelector } from "react-redux";
+import { fetchDepartments } from "../../redux/slices/departmentsSlice";
 
 const AddEmployeePopup = ({
   open,
@@ -47,6 +42,11 @@ const AddEmployeePopup = ({
   const dispatch = useDispatch();
   const { createStatus, error } = useSelector((state) => state.employees);
   const [serverError, setServerError] = useState(null);
+  const {
+    departments,
+    status: deptStatus,
+    error: deptError,
+  } = useSelector((state) => state.departments);
 
   // Employee form state
   const [employeeData, setEmployeeData] = useState({
@@ -137,23 +137,28 @@ const AddEmployeePopup = ({
   const handleSubmit = async () => {
     try {
       const formData = new FormData();
-      
+
       // Append all fields including the photo
       formData.append("photo", employeeData.photo); // Must be first
-      Object.keys(employeeData).forEach(key => {
+      Object.keys(employeeData).forEach((key) => {
         if (key !== "photo") {
           formData.append(key, employeeData[key]);
         }
       });
-  
+
       await dispatch(createEmployee(formData));
-  
+
       window.location.reload(); // Reload the page after successful submission
     } catch (error) {
       console.error("Error creating employee:", error);
     }
   };
-  
+
+  useEffect(() => {
+    if (open) {
+      dispatch(fetchDepartments());
+    }
+  }, [open, dispatch]);
 
   // Reset form when dialog is closed
   useEffect(() => {
@@ -248,12 +253,19 @@ const AddEmployeePopup = ({
                   value={employeeData.department}
                   onChange={handleChange}
                   label="Department"
+                  disabled={deptStatus === "loading"}
                 >
-                  {staticDepartments.map((dept) => (
-                    <MenuItem key={dept._id} value={dept._id}>
-                      {dept.name}
-                    </MenuItem>
-                  ))}
+                  {deptStatus === "loading" ? (
+                    <MenuItem disabled>Loading departments...</MenuItem>
+                  ) : deptError ? (
+                    <MenuItem disabled>{deptError}</MenuItem>
+                  ) : (
+                    departments.map((dept) => (
+                      <MenuItem key={dept._id} value={dept._id}>
+                        {dept.name}
+                      </MenuItem>
+                    ))
+                  )}
                 </Select>
                 {errors.department && (
                   <FormHelperText>{errors.department}</FormHelperText>
