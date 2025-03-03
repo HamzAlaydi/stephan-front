@@ -20,7 +20,7 @@ const MaintenanceRequestWrapper = () => {
 const routes = [
   {
     path: "/maintenance-request",
-    component: PreviousRequests, // ✅ No JSX
+    component: PreviousRequests,
     protected: true,
     allowedDepartments: [
       "machine supervisor",
@@ -32,7 +32,7 @@ const routes = [
   },
   {
     path: "/summaries",
-    component: Summaries, // ✅ No JSX
+    component: Summaries,
     protected: true,
     allowedDepartments: ["maintenance supervisor"],
   },
@@ -63,7 +63,8 @@ const routes = [
   {
     path: "/settings",
     component: Settings, // ✅ Use a function for inline JSX
-    protected: false,
+    protected: true,
+    allowedDepartments: ["maintenance supervisor"],
   },
 ];
 

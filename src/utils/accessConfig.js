@@ -7,6 +7,7 @@ export const accessConfig = {
     "/production-line-profile",
     "/machine-profile",
     "/summaries",
+    "/settings",
   ],
   "director supervisor": [
     "/maintenance-request",

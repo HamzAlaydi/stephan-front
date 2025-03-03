@@ -144,22 +144,22 @@ const Sidebar = () => {
       {/* Spacer */}
       <div className="spacer" />
 
-      {/* Divider */}
-      <Divider className="short-divider" />
-
-      {/* Spacer */}
-      <div className="spacer" />
-
       {/* Settings Tab */}
-      <div className="sidebar-tabs">
-        <div
-          className={`tab ${activeTab === "Settings" ? "active" : ""}`}
-          onClick={() => handleTabClick("Settings")}
-        >
-          <img src={toolIcon} alt="Tool Icon" className="tab-icon" />
-          <span>Settings</span>
-        </div>
-      </div>
+      {allowedRoutes.includes("/settings") && (
+        <>
+          <Divider className="short-divider" />
+          <div className="spacer" />
+          <div className="sidebar-tabs">
+            <div
+              className={`tab ${activeTab === "Settings" ? "active" : ""}`}
+              onClick={() => handleTabClick("Settings")}
+            >
+              <img src={toolIcon} alt="Tool Icon" className="tab-icon" />
+              <span>Settings</span>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
