@@ -58,7 +58,6 @@ const styles = {
 };
 
 export const UserInfo = ({ request }) => {
-  console.log(request);
 
   if (!request) {
     // Simplified null check
@@ -123,7 +122,6 @@ export const UserInfo = ({ request }) => {
           {" "}
           {/* Grid item, takes full width on xs, 4 columns on sm */}
           <Box sx={styles.userSection}>
-            {console.log(request.assignedTo.photo)}
             <Avatar
               src={
                 `${S3}/${request.assignedTo.photo}` ||

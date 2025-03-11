@@ -136,7 +136,7 @@ const productionLinesSlice = createSlice({
         state.error = action.payload?.message || action.error.message;
       })
       .addCase(updateProductionLine.pending, (state) => {
-        state.status = "loading";
+         state.updateStatus = "loading";
       })
       .addCase(updateProductionLine.fulfilled, (state, action) => {
         const index = state.lines.findIndex(

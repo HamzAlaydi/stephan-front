@@ -31,7 +31,6 @@ const AddMachinePopup = ({ open, onClose }) => {
     (state) => state.productionLines
   );
   const { id } = useParams(); // Get productionLineId from URL
-  console.log({ id });
 
   const {
     control,

@@ -57,7 +57,6 @@ const MaintenanceSummaryPopup = ({
     setShowAttachments(false);
   }, [maintenanceData, open]);
   if (!maintenanceData) return null;
-  console.log({ maintenanceData });
 
   // Normalize data from both sources
   const {
@@ -216,7 +215,6 @@ const MaintenanceSummaryPopup = ({
               Total Cost: <span className="subtotal-value">${subtotal}</span>
             </Typography>
           </Grid>
-          {console.log({ attachments })}
           {attachments?.length > 0 && (
             <Grid item xs={12} className="attachments-section">
               <Typography
@@ -267,7 +265,6 @@ const MaintenanceSummaryPopup = ({
               </Typography>
             </Typography>
           </Grid>
-          {console.log({ solution })}
           {/* Solution */}
           <Grid item xs={12}>
             <Typography variant="body1" className="popup-label">

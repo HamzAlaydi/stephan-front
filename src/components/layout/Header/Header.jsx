@@ -51,8 +51,6 @@ const Header = () => {
         {/* User Avatar and Dropdown */}
         <div ref={dropdownRef} className="user-dropdown">
           <div className="user-dropdown-trigger" onClick={toggleDropdown}>
-            {console.log({ user })}
-
             {user?.photo ? (
               <img
                 src={`${S3}/${user.photo}` || ""}
