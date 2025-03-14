@@ -7,6 +7,7 @@ const ActionButtons = ({
   onCancel,
   onConfirm,
   loading = false,
+  disabled = false,
 }) => {
   return (
     <div className="action-buttons">
@@ -20,7 +21,7 @@ const ActionButtons = ({
           <Button
             type="submit"
             className="createButton"
-            disabled={loading}
+            disabled={disabled || loading}
             onClick={onConfirm}
           >
             {loading ? "Submitting..." : confirmText}

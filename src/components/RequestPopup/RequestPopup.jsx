@@ -328,6 +328,7 @@ const RequestPopup = ({
                           Maintenance Staff
                         </Typography>
                         <Select
+                          required
                           value={selectedStaff}
                           onChange={(e) => setSelectedStaff(e.target.value)}
                           size="small"
@@ -348,6 +349,7 @@ const RequestPopup = ({
                           Priority
                         </Typography>
                         <Select
+                          required
                           value={selectedPriority}
                           onChange={(e) => setSelectedPriority(e.target.value)}
                           size="small"
@@ -368,6 +370,7 @@ const RequestPopup = ({
                         onConfirm={handleAssignRequest}
                         disabled={!selectedStaff || !selectedPriority}
                         loading={loading} // Use loading state for button
+                        disable={!selectedStaff || !selectedPriority}
                       />
                     </Grid>
                   </>

@@ -129,6 +129,8 @@ const CreateRequestPopup = ({ open, onClose, addIcon = false }) => {
           message: error.message || "Failed to submit request!",
           type: "error",
         });
+        onClose();
+        window.location.reload();
         console.error("Submission error:", error);
       });
   };
