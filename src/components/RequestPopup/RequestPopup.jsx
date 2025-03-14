@@ -138,6 +138,7 @@ const RequestPopup = ({
       .finally(() => {
         setLoading(false); // Reset button loading state
       });
+    window.location.reload();
   };
 
   const {
