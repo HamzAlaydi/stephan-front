@@ -59,15 +59,3 @@ jobs:
             sudo find /var/www/stephan-front/dist -type f -exec chmod 644 {} \;
             sudo nginx -t  # Test Nginx configuration
             sudo systemctl restart nginx
-
-      - name: Deploy Backend
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ubuntu
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            cd /var/www/stephan-backend
-            git pull origin main
-            npm ci --production
-            pm2 restart stephan-backend
